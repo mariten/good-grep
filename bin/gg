@@ -3,7 +3,7 @@
 
 SEARCH_TERM=$1
 PARAMS=$2
-GREP_RAW=`egrep --color=always --exclude-dir=.svn -nr"$2" "$1" * 2>/dev/null | sed 's/\[K\s\s*/[K/'`
+GREP_RAW=`egrep --color=always --exclude-dir=.svn -nr"$2" "$1" * 2>/dev/null | sed -e 's/\[K[ \t][ \t]*/[K/'`
 
 # Fetch number of lines
 GREP_LINES=`echo "$GREP_RAW" | wc -l`
