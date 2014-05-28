@@ -1,3 +1,9 @@
+1.0.1 ::: 2014-05-28
+====================
+* Trim whitespace logic includes tab characters, not just space characters
+* Fixed bug with whitespace trimming logic that sometimes caused spaces to be removed immediately after the matched word/phrase instead of at the beginning of the line
+* Cleaned up code
+
 1.0.0 ::: 2014-05-28
 ====================
 * Uploaded to GitHub, made new repository
