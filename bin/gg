@@ -1,21 +1,31 @@
 #!/bin/bash
-# Perform Grep search
-
+# Perform Pretty Grep search
 SEARCH_TERM=$1
 PARAMS=$2
-GREP_RAW=`egrep --color=always --exclude-dir=.svn -nr"$2" "$1" * 2>/dev/null | sed -e 's/\[K:\[m\[K[ \t][ \t]*/[K:[m[K/'`
 
-# Fetch number of lines
-GREP_LINES=`echo "$GREP_RAW" | wc -l`
+# Perform grep command and trim leading whitespace of results using sed
+GREP_RESULTS=`                                                              \
+    egrep                                                                   \
+    --color=always                                                          \
+    --exclude-dir=.svn                                                      \
+    -nr"$2"                                                                 \
+    "$1"                                                                    \
+    *                                                                       \
+    2>/dev/null                                                             \
+    |                                                                       \
+    sed -e 's/\[K:\[m\[K[ \t][ \t]*/[K:[m[K/'                   \
+`
 
-# If there is enough output, send to pager, otherwise output directly
+# Check number of lines
 LINE_LIMIT=50
+GREP_LINES=`echo "$GREP_RESULTS" | wc -l`
 
 if [ "$LINE_LIMIT" -gt "$GREP_LINES" ]
 then
     # Lines do not exceed limit, output directly to stdout
-    echo "$GREP_RAW"
+    echo "$GREP_RESULTS"
 else
-    echo "$GREP_RAW" | less -RX
+    # Lots of output, send to pager
+    echo "$GREP_RESULTS" | less -RX
 
 fi
