@@ -7,7 +7,7 @@ PARAMS=$2
 GREP_RESULTS=`                                                              \
     egrep                                                                   \
     --color=always                                                          \
-    --exclude-dir=.svn                                                      \
+    --exclude-from=$HOME/.gg_excludes                                       \
     -nr"$2"                                                                 \
     "$1"                                                                    \
     *                                                                       \

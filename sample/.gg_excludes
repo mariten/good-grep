@@ -1,0 +1,27 @@
+# Revision control
+.git
+.svn
+
+# Temp files
+*.bak
+*.swp
+
+# Compiled code
+*.class
+
+# Compressed files
+*.bz
+*.bz2
+*.gz
+*.jar
+*.tgz
+*.rar
+*.war
+*.zip
+
+# Binary files
+*.gif
+*.lwf
+*.jpg
+*.png
+*.swf

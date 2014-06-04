@@ -9,6 +9,16 @@ wget --no-check-certificate 'https://raw.githubusercontent.com/mariten/good-grep
 chmod +x gg
 ```
 
+### Fetch Sample Excludes File
+```
+cd
+wget --no-check-certificate 'https://raw.githubusercontent.com/mariten/good-grep/master/samples/.gg_excludes'
+
+# Edit as needed
+vim .gg_excludes
+```
+
+
 Usage
 =====
 Assuming that your `~/bin` folder is set in your PATH environment variable:
@@ -22,6 +32,7 @@ gg REGEX_TO_SEARCH_FOR [GREP_OPTIONS]
 2. Type `gg` and the regex you want to grep for (line numbers are displayed by default in results)
 3. If you want to specify any grep options like `-i`, specify them after the input text and **without the dash**
   * Grep option `-n` (display line numbers in results) is set on by default
+
 
 Examples
 ========
