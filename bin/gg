@@ -13,8 +13,10 @@ GREP_RESULTS=`                                                              \
     *                                                                       \
     2>/dev/null                                                             \
     |                                                                       \
-    sed -e 's/\[K:\[m\[K[ \t][ \t]*/[K:[m[K/'                   \
-`
+    sed -e 's/\[K:\[m\[K[ \t][ \t]*/[K:[m[K/'`
+    # The above "sed" command removes whitespace preceeding the matched lines from grep
+    # With this, indented lines of code will take up less space on the screen
+    # The regex contains *nix-style escape characters (used in color codes) which don't show up in GitHub's viewer
 
 # Check number of lines
 LINE_LIMIT=50
