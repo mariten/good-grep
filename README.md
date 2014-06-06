@@ -2,15 +2,15 @@ Download
 ========
 Fetch [**gg**](https://github.com/mariten/good-grep/blob/master/bin/gg) ("**good grep**") from the master branch of this repository, located in the `bin` directory:
 
-###Download from Linux Command Line
-```
+### Download from Linux Command Line
+```bash
 cd ~/bin
 wget --no-check-certificate 'https://raw.githubusercontent.com/mariten/good-grep/master/bin/gg'
 chmod +x gg
 ```
 
 ### Fetch Sample Excludes File
-```
+```bash
 cd
 wget --no-check-certificate 'https://raw.githubusercontent.com/mariten/good-grep/master/samples/.gg_excludes'
 
@@ -23,7 +23,7 @@ Usage
 =====
 Assuming that your `~/bin` folder is set in your PATH environment variable:
 
-```
+```bash
 cd ~/dev/codebase/src
 gg REGEX_TO_SEARCH_FOR [GREP_OPTIONS]
 ```
@@ -36,7 +36,23 @@ gg REGEX_TO_SEARCH_FOR [GREP_OPTIONS]
 
 Examples
 ========
-* `gg variable_to_search_for`
-* `gg convertURL i` (perform case-insensitive search)
-* `gg '\$this->class_instance->functionName(' o` (find file names/numbers with calls to class member)
-* `gg "\('_'\)"` (search for the text `('_')`)
+
+### Standard Search
+```
+gg variable_to_search_for`
+```
+
+### Case-Insensitive Search
+```
+gg convertURL i
+```
+
+### Find Only File Names and Line Numbers of Matches
+```
+gg '\$this->class_instance->functionName(' o
+```
+
+### Regex Search
+```
+gg "\('_'\)"
+```
