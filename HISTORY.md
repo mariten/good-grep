@@ -1,3 +1,9 @@
+1.1.0 ::: 2014-06-06
+====================
+* Added ability to exclude file types using a custom file in the user home directory, instead of hard-coding `*.svn` in the script
+* Cleaned up code, added comment about purpose of `sed` statement
+* Slight re-format to README
+
 1.0.1 ::: 2014-05-28
 ====================
 * Trim whitespace logic includes tab characters, not just space characters
@@ -11,7 +17,7 @@
 
 0.2.0 ::: 2014-05-27
 ====================
-* Use ```egrep``` instead of ```grep```
+* Use `egrep` instead of `grep`
 
 0.1.2 ::: 2013-06-12
 ====================
@@ -19,11 +25,11 @@
 
 0.1.1 ::: 2013-06-07
 ====================
-* Added ability to specify command line grep options like ```-i```
-* Show output in colors even if using ```less```
+* Added ability to specify command line grep options like `-i`
+* Show output in colors even if using `less`
 
 0.1.0 ::: 2013-06-06
 ====================
-* Initial version of ```gg``` (good grep) wrapper
+* Initial version of `gg` (good grep) wrapper
 * Perform grep recursing on all files/subdirectories in current folder
-* If more than 50 results found, show results using ```less```, otherwise output straight to stdout
+* If more than 50 results found, show results using `less`, otherwise output straight to stdout
