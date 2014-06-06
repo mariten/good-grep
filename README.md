@@ -39,7 +39,7 @@ Examples
 
 ### Standard Search
 ```
-gg variable_to_search_for`
+gg variable_to_search_for
 ```
 
 ### Case-Insensitive Search
