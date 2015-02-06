@@ -3,11 +3,20 @@
 SEARCH_TERM=$1
 PARAMS=$2
 
+# Also see, https://github.com/mariten/good-grep/blob/master/sample/.gg_excludes
+GG_EXCLUDES="$HOME/.gg_excludes"
+
+if [ ! -f $GG_EXCLUDES ]; then
+    `echo \#Revision Control > $GG_EXCLUDES`
+    `echo .svn >> $GG_EXCLUDES`
+    `echo .git >> $GG_EXCLUDES`
+fi
+
 # Perform grep command and trim leading whitespace of results using sed
 GREP_RESULTS=`                                                              \
     egrep                                                                   \
     --color=always                                                          \
-    --exclude-from=$HOME/.gg_excludes                                       \
+    --exclude-from=$GG_EXCLUDES                                             \
     -nr"$2"                                                                 \
     "$1"                                                                    \
     *                                                                       \
