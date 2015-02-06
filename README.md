@@ -13,7 +13,7 @@ chmod +x gg
 ### Fetch Sample Excludes File
 ```bash
 cd
-wget --no-check-certificate 'https://raw.githubusercontent.com/mariten/good-grep/master/samples/.gg_excludes'
+wget --no-check-certificate 'https://raw.githubusercontent.com/mariten/good-grep/master/sample/.gg_excludes'
 
 # Edit as needed
 vim .gg_excludes
