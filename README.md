@@ -10,7 +10,7 @@ wget --no-check-certificate 'https://raw.githubusercontent.com/mariten/good-grep
 chmod +x gg
 ```
 
-### Fetch Sample Excludes File
+### Fetch Sample Excludes File (Optional)
 ```bash
 cd
 wget --no-check-certificate 'https://raw.githubusercontent.com/mariten/good-grep/master/sample/.gg_excludes'

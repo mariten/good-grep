@@ -10,6 +10,10 @@ if [ ! -f $GG_EXCLUDES ]; then
     `echo \#Revision Control > $GG_EXCLUDES`
     `echo .svn >> $GG_EXCLUDES`
     `echo .git >> $GG_EXCLUDES`
+    `echo >> $GG_EXCLUDES`
+    `echo \#Temp files >> $GG_EXCLUDES`
+    `echo .bak >> $GG_EXCLUDES`
+    `echo .swp >> $GG_EXCLUDES`
 fi
 
 # Perform grep command and trim leading whitespace of results using sed
