@@ -1,3 +1,7 @@
+1.1.1 ::: 2015-02-09
+====================
+* Auto-create `.gg_excludes` if file does not exist, allow script to work as-is out of the box
+
 1.1.0 ::: 2014-06-06
 ====================
 * Added ability to exclude file types using a custom file in the user home directory, instead of hard-coding `*.svn` in the script
