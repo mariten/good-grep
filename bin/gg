@@ -1,4 +1,7 @@
 #!/bin/bash
+# Configuration
+LINES_IN_SINGLE_WINDOW=50
+
 # Perform Pretty Grep search
 SEARCH_TERM=$1
 PARAMS=$2
@@ -47,15 +50,14 @@ GREP_RESULTS=`                                                              \
     # The regex contains *nix-style escape characters (used in color codes) which don't show up in GitHub's viewer
 
 # Check number of lines
-LINE_LIMIT=50
 GREP_LINES=`echo "$GREP_RESULTS" | wc -l`
 
-if [ "$LINE_LIMIT" -gt "$GREP_LINES" ]
+if [ "$LINES_IN_SINGLE_WINDOW" -gt "$GREP_LINES" ]
 then
-    # Lines do not exceed limit, output directly to stdout
+    # Lines do not exceed screen size, output directly to stdout
     echo "$GREP_RESULTS"
 else
-    # Lots of output, send to pager
+    # Results require more than one screen, send to pager
     echo "$GREP_RESULTS" | less -RX
 
 fi
