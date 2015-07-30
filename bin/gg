@@ -16,11 +16,25 @@ if [ ! -f $GG_EXCLUDES ]; then
     `echo .swp >> $GG_EXCLUDES`
 fi
 
+# Iterate through excludes file and build "--exclude" argument
+EXCLUDES_LIST=""
+while read EXCLUDE_ITEM; do
+    if [ "$EXCLUDE_ITEM" == "" ]; then
+        # Exclude empty lines
+        continue
+    elif [ "${EXCLUDE_ITEM:0:1}" == "#" ]; then
+        # Exclude comments (starting with pound sign)
+        continue
+    fi
+
+    EXCLUDES_LIST="$EXCLUDES_LIST --exclude=$EXCLUDE_ITEM"
+done < $GG_EXCLUDES
+
 # Perform grep command and trim leading whitespace of results using sed
 GREP_RESULTS=`                                                              \
     egrep                                                                   \
     --color=always                                                          \
-    --exclude-from=$GG_EXCLUDES                                             \
+    $EXCLUDES_LIST                                                          \
     -nr"$2"                                                                 \
     "$1"                                                                    \
     *                                                                       \
