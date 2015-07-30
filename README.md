@@ -1,5 +1,3 @@
-Download / Install
-========
 Fetch [**gg**](https://github.com/mariten/good-grep/blob/master/bin/gg) ("**good grep**") from the master branch of this repository, located in the `bin` directory:
 
 ### Download from Linux Command Line

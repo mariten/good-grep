@@ -1,3 +1,10 @@
+1.2.0 ::: 2015-07-30
+====================
+* Added support for OSX grep
+* Build a long list of `--exclude=` and `--exclude-dir=` instead of using `--exlude-from=`, which is not supported in all versions of grep
+* Fixed rare issue with wildcard auto-expansion when creating the default `.gg_excludes` file
+* Clarified in code that size of screen (line limit) is configurable
+
 1.1.1 ::: 2015-02-09
 ====================
 * Auto-create `.gg_excludes` if file does not exist, allow script to work as-is out of the box
