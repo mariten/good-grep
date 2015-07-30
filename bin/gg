@@ -11,13 +11,13 @@ PARAMS=$2
 GG_EXCLUDES="$HOME/.gg_excludes"
 if [ ! -f $GG_EXCLUDES ]; then
     echo '# Revision Control'            > $GG_EXCLUDES
-    echo '*.svn/*'                      >> $GG_EXCLUDES
-    echo '*.git/*'                      >> $GG_EXCLUDES
+    echo '.git/'                        >> $GG_EXCLUDES
+    echo '.svn/'                        >> $GG_EXCLUDES
     echo                                >> $GG_EXCLUDES
     echo '# Temp Files'                 >> $GG_EXCLUDES
-    echo '*.tmp'                        >> $GG_EXCLUDES
-    echo '*.swp'                        >> $GG_EXCLUDES
     echo '*.bak'                        >> $GG_EXCLUDES
+    echo '*.swp'                        >> $GG_EXCLUDES
+    echo '*.tmp'                        >> $GG_EXCLUDES
 fi
 
 # Iterate through excludes file and build "--exclude" argument
@@ -29,9 +29,13 @@ while read EXCLUDE_ITEM; do
     elif [ "${EXCLUDE_ITEM:0:1}" == "#" ]; then
         # Exclude comments (starting with pound sign)
         continue
+    elif [ "${EXCLUDE_ITEM: -1}" == "/" ]; then
+        # Add to list of excluded directories, without trailing slash
+        EXCLUDES_LIST="$EXCLUDES_LIST --exclude-dir=${EXCLUDE_ITEM:0:${#EXCLUDE_ITEM} - 1}"
+    else
+        # Add to list of excluded files
+        EXCLUDES_LIST="$EXCLUDES_LIST --exclude=$EXCLUDE_ITEM"
     fi
-
-    EXCLUDES_LIST="$EXCLUDES_LIST --exclude=$EXCLUDE_ITEM"
 done < $GG_EXCLUDES
 
 # Perform grep command and trim leading whitespace of results using sed

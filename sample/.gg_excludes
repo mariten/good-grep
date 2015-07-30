@@ -1,18 +1,20 @@
-# Revision control
-*.svn/*
-*.git/*
+# Revision Control
+.git/
+.svn/
 
-# Temp files
+# Temp Files
 *.bak
 *.swp
+*.tmp
 
-# Compiled code
+# Compiled Code
 *.class
+*.tpl.php
 
-# Included libraries
-*node_modules/*
+# Included Library Directories
+node_modules/
 
-# Compressed files
+# Compressed Files
 *.bz
 *.bz2
 *.gz
@@ -22,10 +24,15 @@
 *.war
 *.zip
 
-# Binary files
+# Binary Files
+*.DS_Store
 *.gif
 *.lwf
 *.jpg
+*.otf
 *.png
 *.swf
-*.DS_Store
+*.ttf
+
+# Serialized Data File
+*.json
