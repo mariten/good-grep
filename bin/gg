@@ -3,17 +3,18 @@
 SEARCH_TERM=$1
 PARAMS=$2
 
+# Auto-init excludes file if necessary
 # Also see, https://github.com/mariten/good-grep/blob/master/sample/.gg_excludes
 GG_EXCLUDES="$HOME/.gg_excludes"
-
 if [ ! -f $GG_EXCLUDES ]; then
-    `echo \#Revision Control > $GG_EXCLUDES`
-    `echo .svn >> $GG_EXCLUDES`
-    `echo .git >> $GG_EXCLUDES`
-    `echo >> $GG_EXCLUDES`
-    `echo \#Temp files >> $GG_EXCLUDES`
-    `echo .bak >> $GG_EXCLUDES`
-    `echo .swp >> $GG_EXCLUDES`
+    echo '# Revision Control'            > $GG_EXCLUDES
+    echo '*.svn/*'                      >> $GG_EXCLUDES
+    echo '*.git/*'                      >> $GG_EXCLUDES
+    echo                                >> $GG_EXCLUDES
+    echo '# Temp Files'                 >> $GG_EXCLUDES
+    echo '*.tmp'                        >> $GG_EXCLUDES
+    echo '*.swp'                        >> $GG_EXCLUDES
+    echo '*.bak'                        >> $GG_EXCLUDES
 fi
 
 # Iterate through excludes file and build "--exclude" argument

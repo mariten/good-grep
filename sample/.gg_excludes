@@ -1,6 +1,6 @@
 # Revision control
-.git
-.svn
+*.svn/*
+*.git/*
 
 # Temp files
 *.bak
@@ -8,6 +8,9 @@
 
 # Compiled code
 *.class
+
+# Included libraries
+*node_modules/*
 
 # Compressed files
 *.bz
@@ -25,3 +28,4 @@
 *.jpg
 *.png
 *.swf
+*.DS_Store
